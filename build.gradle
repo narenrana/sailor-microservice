@@ -1,0 +1,64 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.sailor'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+	maven {
+        url "https://files.boxfuse.com"
+    }
+}
+
+
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.cloud:spring-cloud-starter-aws')
+	compile('org.springframework.cloud:spring-cloud-starter-aws')
+	compile('com.github.derjust:spring-data-dynamodb:5.0.2')
+	
+	
+	compile('org.springframework.cloud:spring-cloud-stream')
+	compile('org.springframework.cloud:spring-cloud-stream-binder-kafka')
+	compile('org.springframework.kafka:spring-kafka')
+	compile('org.apache.kafka:kafka-streams')
+	compile('org.springframework.cloud:spring-cloud-stream-binder-kafka-streams')
+	
+	//compile('ca.pjer:logback-awslogs-appender:0.1.0')
+	//compile('com.boxfuse.cloudwatchlogs:cloudwatchlogs-java-appender:1.0.2.17')
+	compile('io.github.dibog:cloudwatch-logback-appender:1.0.0')
+	
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud.stream.app:app-starters-core-dependencies:2.0.0.RELEASE"
+	}
+}
+
+ 

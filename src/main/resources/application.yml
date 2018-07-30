@@ -1,0 +1,38 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGO_URL}  
+  cloud:
+    stream:
+      bindings:
+        ordersOut: 
+            destination: 7ro9kyjt-test
+            content-type: application/json
+            producer: 
+              partitionKeyExpression: "1"
+        ordersIn:
+            destination: 7ro9kyjt-test
+            content-type: application/json
+
+
+cloud.aws.region.static: us-east-1
+      
+aws.accessKeyId: ${aws.accessKeyId}
+aws.secretKey: ${aws.secretKey}
+aws.dynamodb.endpoint: 
+aws.region:  ${aws.region}
+ 
+
+logging: 
+  level:
+    com: 
+      amazonaws: INFO
+    org:
+      apache: 
+        http: INFO
+
+spring.kafka.bootstrap-servers: localhost:9092 #velomobile-01.srvs.cloudkafka.com:9094,velomobile-02.srvs.cloudkafka.com:9094,velomobile-03.srvs.cloudkafka.com:9094
+#spring.cloud.stream.kafka.binder.configuration.security.protocol: SASL_SSL
+#spring.kafka.properties.sasl.mechanism: SCRAM-SHA-256
+#spring.kafka.properties.sasl.jaas.config: org.apache.kafka.common.security.scram.ScramLoginModule required username="7ro9kyjt" password="0g3YyzVAiT0lJe6BLD_I8QOb1n2_r0Oe";
+#spring.kafka.consumer.group-id: 7ro9kyjt-consumers
