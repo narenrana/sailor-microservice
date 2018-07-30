@@ -18,4 +18,4 @@ COPY ${JAR_FILE} app.jar
 
 # Run the jar file 
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom -DMONGO_URL=mongodb+srv://narenrana02:karnal1984@cluster0-szgdc.mongodb.net/test?retryWrites=true -Daws.accessKeyId=AKIAJ5E4F6LRUWGOYLXQ -Daws.secretKey=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 -Daws.region=us-east-1","-jar","/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom -DMONGO_URL= -Daws.accessKeyId= -Daws.secretKey= -Daws.region=us-east-1","-jar","/app.jar"]
